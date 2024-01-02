@@ -10,9 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.dgm.conditional.model.Condition;
 import org.dgm.conditional.model.ConditionOperator;
 import org.dgm.conditional.model.ConditionResult;
-import org.dgm.conditional.utils.NumberUtils.BigDecimalUtils;
-import org.dgm.conditional.utils.NumberUtils.IntegerUtils;
-import org.dgm.conditional.utils.NumberUtils.LongUtils;
+import org.dgm.conditional.utils.NumberUtils;
 
 public class ConditionBuilder {
 
@@ -56,42 +54,42 @@ public class ConditionBuilder {
 												final ConditionOperator operator,
 												final ConditionResult conditionResult) {
 
-		return isNonNullAndNotZero(() -> IntegerUtils.isNonNullAndNotZero(integer), operator, conditionResult);
+		return isNonNullAndNotZero(() -> NumberUtils.isNonNullAndNotZero(integer), operator, conditionResult);
 	}
 
 	public static Condition isNonNullAndNotZero(final Long longNumber,
 												final ConditionOperator operator,
 												final ConditionResult conditionResult) {
 
-		return isNonNullAndNotZero(() -> LongUtils.isNonNullAndNotZero(longNumber), operator, conditionResult);
+		return isNonNullAndNotZero(() -> NumberUtils.isNonNullAndNotZero(longNumber), operator, conditionResult);
 	}
 
 	public static Condition isNonNullAndNotZero(final BigDecimal bigDecimal,
 												final ConditionOperator operator,
 												final ConditionResult conditionResult) {
 
-		return isNonNullAndNotZero(() -> BigDecimalUtils.isNonNullAndNotZero(bigDecimal), operator, conditionResult);
+		return isNonNullAndNotZero(() -> NumberUtils.isNonNullAndNotZero(bigDecimal), operator, conditionResult);
 	}
 
 	public static Condition isNonNullAndIsZero(final Integer integer,
 											   final ConditionOperator operator,
 											   final ConditionResult conditionResult) {
 
-		return isNonNullAndIsZero(() -> IntegerUtils.isNonNullAndIsZero(integer), operator, conditionResult);
+		return isNonNullAndIsZero(() -> NumberUtils.isNonNullAndIsZero(integer), operator, conditionResult);
 	}
 
 	public static Condition isNonNullAndIsZero(final Long longNumber,
 											   final ConditionOperator operator,
 											   final ConditionResult conditionResult) {
 
-		return isNonNullAndIsZero(() -> LongUtils.isNonNullAndIsZero(longNumber), operator, conditionResult);
+		return isNonNullAndIsZero(() -> NumberUtils.isNonNullAndIsZero(longNumber), operator, conditionResult);
 	}
 
 	public static Condition isNonNullAndIsZero(final BigDecimal bigDecimal,
 											   final ConditionOperator operator,
 											   final ConditionResult conditionResult) {
 
-		return isNonNullAndIsZero(() -> BigDecimalUtils.isNonNullAndIsZero(bigDecimal), operator, conditionResult);
+		return isNonNullAndIsZero(() -> NumberUtils.isNonNullAndIsZero(bigDecimal), operator, conditionResult);
 	}
 
 	private static Condition isNonNullAndNotZero(final BooleanSupplier booleanSupplier,
