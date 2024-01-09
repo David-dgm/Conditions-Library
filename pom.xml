@@ -8,7 +8,6 @@
 
 
 	<packaging>pom</packaging>
-	<name>Conditional</name>
 	<description>Librería para trabajar con condiciones.</description>
 
 	<properties>
