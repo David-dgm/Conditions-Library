@@ -24,6 +24,13 @@ class RecursiveConditionFunctions {
 	}
 
 	// General
+	public <T, R> Condition isNull(final T recusiveObject,
+								   final Function<T, R> functionExtract,
+								   final ConditionOperator operator) {
+
+		return ConditionalFunctionsSpeciality.isNull(recusiveObject, functionExtract, operator);
+	}
+
 	public <T, R> Condition isNotNull(final T recusiveObject,
 									  final Function<T, R> functionExtract,
 									  final ConditionOperator operator) {

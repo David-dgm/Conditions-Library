@@ -44,6 +44,16 @@ public class ConditionalRecursive<T> extends Conditional123 {
 		return this.addRecursive(notNullCondition);
 	}
 
+	public <R> ConditionalRecursive<T> isNull(@NotNull final Function<T, R> extractAttributeFunction,
+											  final ConditionOperator operator) {
+
+		final Condition notNullCondition = this.conditionFunctionsProvider.isNull(this.recursiveObject,
+																				  extractAttributeFunction,
+																				  operator);
+
+		return this.addRecursive(notNullCondition);
+	}
+
 	public <R> ConditionalRecursive<T> isNotNull(@NotNull final Function<T, R> extractAttributeFunction,
 												 final ConditionOperator operator) {
 
@@ -143,6 +153,11 @@ public class ConditionalRecursive<T> extends Conditional123 {
 		return this.addRecursive(notNullAndZeroNumberCondition);
 	}
 
+	public <R> ConditionalRecursive<T> andIsNull(@NotNull final Function<T, R> extractAttributeFunction) {
+
+		return this.isNull(extractAttributeFunction, AND);
+	}
+
 	public <R> ConditionalRecursive<T> andIsNotNull(@NotNull final Function<T, R> extractAttributeFunction) {
 
 		return this.isNotNull(extractAttributeFunction, AND);
@@ -188,6 +203,11 @@ public class ConditionalRecursive<T> extends Conditional123 {
 		return this.isNonNullAndIsZero(extractNumberFunction, AND);
 	}
 
+
+	public <R> ConditionalRecursive<T> orIsNull(@NotNull final Function<T, R> extractAttributeFunction) {
+
+		return this.isNull(extractAttributeFunction, OR);
+	}
 
 	public <R> ConditionalRecursive<T> orIsNotNull(@NotNull final Function<T, R> extractAttributeFunction) {
 
